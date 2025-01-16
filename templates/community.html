@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="/static/css/main.css" />
+  <link rel="shortcut" href="https://chat.openai.com/favicon.ico" type="image/X-UA-Compatible" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+  <title>Daily Updates</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+   <!-- This is the Menubar -->
+   <header class="w-full bg-white shadow">
+    <div class="flex items-center justify-between px-6 py-4">
+      <!-- Logo -->
+      <a class="flex items-center text-2xl font-black text-slate-800" href="/">
+        <img src="static\photos\logo.png" class="h-20 w-auto">
+      </a>
+      
+
+      <!-- Search Bar -->
+      <form class="hidden md:flex items-center space-x-2 max-w-md w-full">
+        <input type="text" placeholder="Search here..." class="w-full px-4 py-2 text-sm rounded-lg bg-slate-800 text-white placeholder-gray-400 focus:outline-none ">
+        <button type="submit" class="px-3 py-1.5 text-white bg-slate-600 rounded-lg hover:bg-slate-800 focus:outline-none ">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+    <!-- Navigation -->
+<nav>
+  <ul class="hidden md:flex space-x-8 text-gray-600">
+    <li><a href="{{ url_for('learn') }}" class="hover:text-blue-600">Learn</a></li>
+    <li><a href="{{ url_for('research_and_project') }}" class="hover:text-blue-600">Research & Project</a></li>
+    <li><a href="{{ url_for('community') }}" class="hover:text-blue-600">Community</a></li>
+    <li><a href="{{ url_for('blog') }}" class="hover:text-blue-600">Blog</a></li>
+    <li><a href="{{ url_for('join_us') }}" class="hover:text-blue-600">Join Us</a></li>
+  </ul>
+</nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+      <form class=" flex items-center space-x-4 px-6 max-w-md w-full">
+        <input type="text" placeholder="Search here..." class="w-full px-4 py-2 text-sm rounded-lg bg-slate-800 text-white placeholder-gray-400 focus:outline-none ">
+        <button type="submit" class="px-3 py-1.5 text-white bg-slate-600 rounded-lg hover:bg-slate-800 focus:outline-none ">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <ul class="flex flex-col space-y-2 px-6 py-4 text-gray-600">
+        <li><a href="/templates/learn.html" class="hover:text-blue-600">Learn</a></li>
+        <li><a href="#" class="hover:text-blue-600">Research & Project</a></li>
+        <li><a href="#" class="hover:text-blue-600">Community</a></li>
+        <li><a href="#" class="hover:text-blue-600">Blog</a></li>
+        <li><a href="#" class="hover:text-blue-600">Join Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+
+  <!-- Posts Section -->
+  <div class="max-w-7xl mx-auto py-8 px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+<!-- Post 1 -->
+<div class="bg-white shadow rounded-lg p-4">
+    <img src="/static/photos/Posts/Lokking for.png" alt="Post Image" 
+         class="w-full object-cover rounded" 
+         style="aspect-ratio: 3/2; height: auto;">
+    <h2 class="text-lg font-bold text-gray-800 mt-4">Attention Please</h2>
+    <p class="text-sm text-gray-600 mt-2"> Join the AI Community, BUBT!  
+        We are looking for talented 
+        1.Graphics Designers 
+        2.Videographers 
+        3.Photographers
+        4.Video Editors...</p>
+    <p class="text-xs text-gray-500 mt-1">Posted 2 hours ago</p>
+  </div>
+  
+
+      <!-- Post 2 -->
+      <div class="bg-white shadow rounded-lg p-4">
+        <img src="/static/photos/Posts/8.png" alt="Post Image" 
+             class="w-full object-cover rounded" 
+             style="aspect-ratio: 3/2; height: auto;">
+        <h2 class="text-lg font-bold text-gray-800 mt-4">Industrial Visit On  Robust Research And Development Ltd. </h2>
+        <p class="text-sm text-gray-600 mt-2"> What an incredible journey! Our industry visit to Robust Research And Development Ltd.  was a milestone filled with achievements and insights:...</p>
+        <p class="text-xs text-gray-500 mt-1">Posted 10 days ago</p>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="bg-white shadow rounded-lg p-4">
+        <img src="/static/photos/Posts/1.jpg" alt="Post Image" 
+             class="w-full object-cover rounded" 
+             style="aspect-ratio: 3/2; height: auto;">
+        <h2 class="text-lg font-bold text-gray-800 mt-4">Carrer Adda With "Munsi Walid Al Hassan" </h2>
+        <p class="text-sm text-gray-600 mt-2"> An inspiring session with Munsi Walid Al Hassan Nizhu, AI Engineer, where students dived deep into the possibilities, challenges, and growth opportunities in the field of Artificial Intelligence. 
+            The interactive discussions, practical  ...</p>
+        <p class="text-xs text-gray-500 mt-1">Posted 19 days ago</p>
+      </div>
+
+      <!-- Post 4 -->
+      <div class="bg-white shadow rounded-lg p-4">
+        <img src="/static/photos/Posts/2.jpg" alt="Post Image" 
+             class="w-full object-cover rounded" 
+             style="aspect-ratio: 3/2; height: auto;">
+        <h2 class="text-lg font-bold text-gray-800 mt-4">Python Bangladesh Presents "True Meetup 1.0" </h2>
+        <p class="text-sm text-gray-600 mt-2"> An incredible day filled with learning, innovation, and inspiration as we hosted some of the brightest minds in the industry. From insightful discussions to engaging sessions, this event was a true celebration of Python and its endless possibilities.  
+        ...</p>
+        <p class="text-xs text-gray-500 mt-1">Posted one month ago</p>
+      </div>
+
+      <!-- Post 5 -->
+      <div class="bg-white shadow rounded-lg p-4">
+        <img src="/static/photos/Posts/3.jpg" alt="Post Image" 
+             class="w-full object-cover rounded" 
+             style="aspect-ratio: 3/2; height: auto;">
+        <h2 class="text-lg font-bold text-gray-800 mt-4">The Grand Finale of Brainstorming Week - Fall 2024!  </h2>
+        <p class="text-sm text-gray-600 mt-2"> A day filled with innovation, creativity, and inspiration! 🧠 From the captivating Idea Pitching to the stunning Poster Presentations, the final day showcased the incredible talents and efforts of our participants... ...</p>
+        <p class="text-xs text-gray-500 mt-1">Posted one month ago</p>
+      </div>
+
+      <!-- Post 6 -->
+      <div class="bg-white shadow rounded-lg p-4">
+        <img src="/static/photos/Posts/4.jpg" alt="Post Image" 
+             class="w-full object-cover rounded" 
+             style="aspect-ratio: 3/2; height: auto;">
+        <h2 class="text-lg font-bold text-gray-800 mt-4">AI Coding Session of Brainstorming week 2024 [AI Mode] </h2>
+        <p class="text-sm text-gray-600 mt-2"> Coding creativity meets AI innovation!
+            Here's a sneak peek into today's dynamic AI Coding Session of Brainstorming week 2024 [AI Mode], where bright minds collaborated, coded, and brought ideas to life. 
+            Get ready for the final of  Idea Pitching & Research Poster Presentation !!... ...</p>
+        <p class="text-xs text-gray-500 mt-1">Posted one month ago</p>
+      </div>
+      
+      <!-- Post 7 -->
+      <div class="bg-white shadow rounded-lg p-4">
+        <img src="/static/photos/Posts/5.jpg" alt="Post Image" 
+             class="w-full object-cover rounded" 
+             style="aspect-ratio: 3/2; height: auto;">
+        <h2 class="text-lg font-bold text-gray-800 mt-4">Idea Pitching and Poster Presentation! </h2>
+        <p class="text-sm text-gray-600 mt-2"> Here are some glimpses of the incredible teams selected for Idea Pitching and Poster Presentation! Their creativity, hard work, and passion for problem-solving are truly inspiring.
+            Let’s celebrate their journey toward innovation and excellence. Get ready for the final round!!... ...</p>
+        <p class="text-xs text-gray-500 mt-1">Posted one month ago</p>
+      </div>
+
+    </div>
+  </div>
+  
+  <script src="/static/js/script.js"></script>
+
+
+
+</body>
+</html>

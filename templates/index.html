@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="/static/css/main.css" />
+  <link rel="shortcut" href="https://chat.openai.com/favicon.ico" type="image/X-UA-Compatible" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+  
+
+ 
+  <title>AIC BUBT</title>
+</head>
+
+<body class="bg-white overflow-auto h-screen">
+
+  <!-- This is the Menubar -->
+  <header class="w-full bg-white shadow">
+    <div class="flex items-center justify-between px-6 py-4">
+      <!-- Logo -->
+      <a class="flex items-center text-2xl font-black text-slate-800" href="/">
+        <img src="static\photos\logo.png" class="h-20 w-auto">
+      </a>
+      
+
+      <!-- Search Bar -->
+      <form class="hidden md:flex items-center space-x-2 max-w-md w-full">
+        <input type="text" placeholder="Search here..." class="w-full px-4 py-2 text-sm rounded-lg bg-slate-800 text-white placeholder-gray-400 focus:outline-none ">
+        <button type="submit" class="px-3 py-1.5 text-white bg-slate-600 rounded-lg hover:bg-slate-800 focus:outline-none ">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+    <!-- Navigation -->
+<nav>
+  <ul class="hidden md:flex space-x-8 text-gray-600">
+    <li><a href="{{ url_for('learn') }}" class="hover:text-blue-600">Learn</a></li>
+    <li><a href="{{ url_for('research_and_project') }}" class="hover:text-blue-600">Research & Project</a></li>
+    <li><a href="{{ url_for('community') }}" class="hover:text-blue-600">Community</a></li>
+    <li><a href="{{ url_for('blog') }}" class="hover:text-blue-600">Blog</a></li>
+    <li><a href="{{ url_for('join_us') }}" class="hover:text-blue-600">Join Us</a></li>
+  </ul>
+</nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+      <form class=" flex items-center space-x-4 px-6 max-w-md w-full">
+        <input type="text" placeholder="Search here..." class="w-full px-4 py-2 text-sm rounded-lg bg-slate-800 text-white placeholder-gray-400 focus:outline-none ">
+        <button type="submit" class="px-3 py-1.5 text-white bg-slate-600 rounded-lg hover:bg-slate-800 focus:outline-none ">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <ul class="flex flex-col space-y-2 px-6 py-4 text-gray-600">
+        <li><a href="/templates/learn.html" class="hover:text-blue-600">Learn</a></li>
+        <li><a href="#" class="hover:text-blue-600">Research & Project</a></li>
+        <li><a href="#" class="hover:text-blue-600">Community</a></li>
+        <li><a href="#" class="hover:text-blue-600">Blog</a></li>
+        <li><a href="#" class="hover:text-blue-600">Join Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- This part is for horizontal scrolling animation of Notice-->
+
+  <div class="overflow-hidden whitespace-nowrap bg-slate-800 text-white">
+    <div class="inline-block animate-scroll">
+      <span class="px-4"> Welcome to our website!             </span>
+      <span class="px-4"> Check out our latest updates.           </span>
+      <span class="px-4"> Join our community today!          </span>
+    </div>
+  </div>
+  
+
+<!-- Slideshow Container -->
+<div id="slideshow" class="relative overflow-hidden w-full h-[400px]">
+  <!-- Slides -->
+  <div class="slide">
+    <img src="/static/photos/cover.png" class="w-full h-full object-contain" alt="Slide 1">
+  </div>
+  <div class="slide hidden">
+    <img src="/static/photos/gfyd.png" class="w-full h-full object-contain" alt="Slide 2">
+  </div>
+  <div class="slide hidden">
+    <img src="/static/photos/aibattle.jpeg" class="w-full h-full object-contain" alt="Slide 3">
+  </div>
+
+  <!-- Controls -->
+  <button id="prev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg">
+    &larr;
+  </button>
+  <button id="next" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg">
+    &rarr;
+  </button>
+</div>
+
+<!-- Learn More -->
+<div class="text-center mt-10">
+  <!-- Bold Heading -->
+  <h2 class="text-3xl font-extrabold text-slate-800">
+    Learn More About AI Community BUBT
+  </h2>
+  <!-- Button-like Icon -->
+  <div class="mt-4">
+    <button 
+      onclick="scrollToFooter()" 
+      class="bg-slate-800 text-white p-4 rounded-full shadow-lg transform hover:scale-105 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+
+<!-- Article section -->
+<div class="max-w-7xl mx-auto mt-10 px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- Article 1 -->
+  <div class="p-6 bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-extrabold text-gray-900">
+      Brainstorming Week
+    </h2>
+    <p class="mt-4 text-gray-700">
+      The AI Community of BUBT, in collaboration with the Department of CSE, BUBT, is thrilled to announce the commencement of Brainstorming Week 2024, focusing on the Artificial Intelligence Segment.
+    </p>
+    <div class="mt-6">
+      <button class="bg-slate-800 text-white py-2 px-4 rounded-full shadow-lg hover:bg-slate-600 transition">
+        Read more
+      </button>
+    </div>
+  </div>
+
+  <!-- Article 2 -->
+  <div class="p-6 bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-extrabold text-gray-900">
+      AI Innovations 2024
+    </h2>
+    <p class="mt-4 text-gray-700">
+      Join us for an insightful event where industry leaders discuss cutting-edge AI innovations shaping the future of technology.
+    </p>
+    <div class="mt-6">
+      <button class="bg-slate-800 text-white py-2 px-4 rounded-full shadow-lg hover:bg-slate-600 transition bottom-0 ">
+        Read more
+      </button>
+    </div>
+  </div>
+
+  <!-- Article 3 -->
+  <div class="p-6 bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-extrabold text-gray-900">
+      Machine Learning Bootcamp
+    </h2>
+    <p class="mt-4 text-gray-700">
+      A hands-on bootcamp designed for beginners to learn and apply machine learning concepts in real-world scenarios.
+    </p>
+    <div class="mt-6">
+      <button class="bg-slate-800 text-white py-2 px-4 rounded-full shadow-lg hover:bg-slate-600 transition">
+        Read more
+      </button>
+    </div>
+  </div>
+
+  <!-- Add more articles here if needed -->
+</div>
+
+
+<!-- Testimonial section -->
+
+<div class="max-w-7xl mx-auto mt-10 px-6 relative">
+  <!-- Testimonials Grid -->
+  <div id="testimonial-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 overflow-hidden transition-all duration-500 max-h-[500px] relative">
+    <!-- Testimonial 1 -->
+    <div class="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center text-center">
+      <img src="/static/photos/vcsir.JPG" alt="User Image" class="w-20 h-20 rounded-full mb-4">
+      <h3 class="text-xl font-bold text-gray-800">Prof. Dr. A B M Shawkat Ali</h3>
+      <p class="text-sm text-gray-500 mb-2">Vice Chancellor,BUBT</p>
+      <p class="text-gray-600">
+        "I am proud of the AI Community at BUBT for inspiring innovation and showcasing student potential in AI. This expo reflects our dedication to advancing technology and fostering future leaders."
+      </p>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center text-center">
+      <img src="/static/photos/chairmansir.JPG" alt="User Image" class="w-20 h-20 rounded-full mb-4">
+      <h3 class="text-xl font-bold text-gray-800">Md. Saifur Rahman</h3>
+      <p class="text-sm text-gray-500 mb-2">Assistant Professor & Chairman(Acting),Department of Computer Science & Engineering</p>
+      <p class="text-gray-600">
+        "I commend the AI Community for their remarkable efforts in nurturing talent and promoting AI innovation at BUBT."
+      </p>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center text-center">
+      <img src="/static/photos/chakisir.JPG" alt="User Image" class="w-20 h-20 rounded-full mb-4">
+      <h3 class="text-xl font-bold text-gray-800">Mr. Sudipto Chaki</h3>
+      <p class="text-sm text-gray-500 mb-2">Assistant Professor,
+        Department of Computer Science & Engineering</p>
+      <p class="text-gray-600">
+        "I am proud to see the AI Community leading the way in empowering students and fostering a culture of technological excellence."
+      </p>
+    </div>
+
+    <!-- More Testimonials -->
+    <div class="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center text-center">
+      <img src="/static/photos/shisirvai.JPG" alt="User Image" class="w-20 h-20 rounded-full mb-4">
+      <h3 class="text-xl font-bold text-gray-800">Emdadul Hasan Shisir</h3>
+      <p class="text-sm text-gray-500 mb-2">Vercel</p>
+      <p class="text-gray-600">
+        If I had to recommend a way of getting into programming today, it would be HTML + CSS with Tailwind CSS.
+      </p>
+    </div>
+
+    <!-- Additional testimonials for testing -->
+    <div class="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center text-center">
+      <img src="/static/photos/toiubvai.JPG" alt="User Image" class="w-20 h-20 rounded-full mb-4">
+      <h3 class="text-xl font-bold text-gray-800">Munshi Toiubur Rahman</h3>
+      <p class="text-sm text-gray-500 mb-2">Developer</p>
+      <p class="text-gray-600">
+        I've been writing CSS for over 20 years, and Tailwind made my life so much easier.
+      </p>
+    </div>
+
+    <div class="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center text-center">
+      <img src="/static/photos/nayeemvai.JPG" alt="User Image" class="w-20 h-20 rounded-full mb-4">
+      <h3 class="text-xl font-bold text-gray-800">MD Darun Nayeem</h3>
+      <p class="text-sm text-gray-500 mb-2">Full Stack Web Developer & Educator</p>
+      <p class="text-gray-600">
+        Tailwind CSS accelerated my development process like no other framework.
+      </p>
+    </div>
+  </div>
+
+  <!-- Fade Effect -->
+  <div id="fade-overlay" class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-white to-transparent flex justify-center items-center">
+    <!-- Show More Button -->
+    <a href="testimonials.html" id="show-more-btn" class="bg-slate-800 text-white py-2 px-6 rounded-full shadow-lg hover:bg-slate-600 transition z-10">
+      Show More
+    </a>
+  </div>
+</div>
+
+
+ <!-- Join section -->
+<div class="max-w-7xl mx-auto text-center py-16 px-4 sm:px-6 lg:py-20">
+  <!-- Heading -->
+  <h2 class="text-3xl font-extrabold text-slate-800 sm:text-4xl">
+    How to Join
+  </h2>
+  <h1 class="text-5xl font-black text-slate-800 mt-4">
+    AI Community BUBT
+  </h1>
+  
+  <!-- Button -->
+  <div class="mt-10">
+    <a href="#membership" class="inline-block bg-slate-800 text-white text-lg font-medium py-4 px-8 rounded-full shadow-lg hover:bg-slate-600 transition duration-300">
+      Get a Membership
+    </a>
+  </div>
+</div>
+
+
+ <!-- Footer section -->
+
+<footer  id="footer" class="bg-gray-50 border-t border-gray-200 py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+      
+      <!-- About AI Community BUBT -->
+      <div class="md:col-span-1">
+        <h2 class="text-lg font-bold text-gray-900">AI Community BUBT</h2>
+        <p class="text-gray-600 mt-2 text-sm">
+          Connecting students, researchers, and professionals to foster innovation and learning in artificial intelligence at BUBT.
+        </p>
+        <p class="text-gray-600 mt-1 text-sm">
+          Copyright © AI Community BUBT, 2025
+        </p>
+      </div>
+      
+      <!-- Learn AI -->
+      <div>
+        <h3 class="text-sm font-semibold text-gray-800 tracking-wide uppercase">Learn AI</h3>
+        <ul class="mt-4 space-y-2">
+          <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Beginner's Guide</a></li>
+          <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Machine Learning Basics</a></li>
+          <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Deep Learning Concepts</a></li>
+          <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Data Science Tools</a></li>
+          <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Ethics in AI</a></li>
+        </ul>
+      </div>
+      
+      <!-- Community Resources -->
+      <div>
+        <h3 class="text-sm font-semibold text-gray-800 tracking-wide uppercase">Community Resources</h3>
+        <ul class="mt-4 space-y-2">
+          <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Events & Workshops</a></li>
+          <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">AI Projects</a></li>
+          <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Mentorship Program</a></li>
+          <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">AI Blogs</a></li>
+        </ul>
+      </div>
+      
+      <!-- Get Involved -->
+      <div>
+        <h3 class="text-sm font-semibold text-gray-800 tracking-wide uppercase">Get Involved</h3>
+        <ul class="mt-4 space-y-2">
+          <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Join as a Member</a></li>
+          <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Become a Volunteer</a></li>
+          <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Sponsor Us</a></li>
+          <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Social Media Links -->
+    <div class="mt-10 flex justify-center md:justify-end space-x-4">
+      <a href="https://www.facebook.com/aicbubt" class="text-gray-500 hover:text-gray-900"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="text-gray-500 hover:text-gray-900"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="text-gray-500 hover:text-gray-900"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="text-gray-500 hover:text-gray-900"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</footer>
+
+  
+<script src="/static/js/script.js"></script>
+
+</body>
+
+</html>

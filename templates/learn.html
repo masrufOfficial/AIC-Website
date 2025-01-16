@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="/static/css/main.css" />
+  <link rel="shortcut" href="https://chat.openai.com/favicon.ico" type="image/X-UA-Compatible" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+  <title>Learn With AI Community BUBT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+   <!-- This is the Menubar -->
+   <header class="w-full bg-white shadow">
+    <div class="flex items-center justify-between px-6 py-4">
+      <!-- Logo -->
+      <a class="flex items-center text-2xl font-black text-slate-800" href="/">
+        <img src="static\photos\logo.png" class="h-20 w-auto">
+      </a>
+      
+
+      <!-- Search Bar -->
+      <form class="hidden md:flex items-center space-x-2 max-w-md w-full">
+        <input type="text" placeholder="Search here..." class="w-full px-4 py-2 text-sm rounded-lg bg-slate-800 text-white placeholder-gray-400 focus:outline-none ">
+        <button type="submit" class="px-3 py-1.5 text-white bg-slate-600 rounded-lg hover:bg-slate-800 focus:outline-none ">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+    <!-- Navigation -->
+<nav>
+  <ul class="hidden md:flex space-x-8 text-gray-600">
+    <li><a href="{{ url_for('learn') }}" class="hover:text-blue-600">Learn</a></li>
+    <li><a href="{{ url_for('research_and_project') }}" class="hover:text-blue-600">Research & Project</a></li>
+    <li><a href="{{ url_for('community') }}" class="hover:text-blue-600">Community</a></li>
+    <li><a href="{{ url_for('blog') }}" class="hover:text-blue-600">Blog</a></li>
+    <li><a href="{{ url_for('join_us') }}" class="hover:text-blue-600">Join Us</a></li>
+  </ul>
+</nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+      <form class=" flex items-center space-x-4 px-6 max-w-md w-full">
+        <input type="text" placeholder="Search here..." class="w-full px-4 py-2 text-sm rounded-lg bg-slate-800 text-white placeholder-gray-400 focus:outline-none ">
+        <button type="submit" class="px-3 py-1.5 text-white bg-slate-600 rounded-lg hover:bg-slate-800 focus:outline-none ">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <ul class="flex flex-col space-y-2 px-6 py-4 text-gray-600">
+        <li><a href="/templates/learn.html" class="hover:text-blue-600">Learn</a></li>
+        <li><a href="#" class="hover:text-blue-600">Research & Project</a></li>
+        <li><a href="#" class="hover:text-blue-600">Community</a></li>
+        <li><a href="#" class="hover:text-blue-600">Blog</a></li>
+        <li><a href="#" class="hover:text-blue-600">Join Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Top Navigation Bar -->
+  <nav class="bg-gray-800 text-white px-6 py-3">
+    <ul class="flex space-x-8 text-sm font-medium overflow-x-auto">
+      <li><a href="#" class="hover:text-blue-400" onclick="loadContent('python')">Python for AI</a></li>
+      <li><a href="#" class="hover:text-blue-400" onclick="loadContent('ml')">Machine Learning</a></li>
+      <li><a href="#" class="hover:text-blue-400" onclick="loadContent('dl')">Deep Learning</a></li>
+      <li><a href="#" class="hover:text-blue-400" onclick="loadContent('nlp')">Natural Language Processing</a></li>
+      <li><a href="#" class="hover:text-blue-400" onclick="loadContent('ds')">Data Science</a></li>
+      <li><a href="#" class="hover:text-blue-400" onclick="loadContent('cv')">Computer Vision</a></li>
+      <li><a href="#" class="hover:text-blue-400" onclick="loadContent('api')">AI APIs</a></li>
+      <li><a href="#" class="hover:text-blue-400" onclick="loadContent('frameworks')">AI Frameworks</a></li>
+      <li><a href="#" class="hover:text-blue-400" onclick="loadContent('ethics')">AI Ethics</a></li>
+      <li><a href="#" class="hover:text-blue-400" onclick="loadContent('deployment')">AI Deployment</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Area -->
+  <div class="flex mt-6 mx-auto max-w-7xl">
+    <!-- Table of Contents (Left Sidebar) -->
+    <aside class="w-1/4 bg-white shadow p-4">
+      <ul id="table-of-contents" class="space-y-2 text-sm text-gray-700">
+        <!-- Dynamic Table of Contents -->
+      </ul>
+    </aside>
+
+    <!-- Content Section (Right) -->
+    <section class="w-3/4 bg-white shadow p-6 ml-6">
+      <h1 id="content-title" class="text-4xl font-bold mb-4">Lets Learn With AI COMMUNITY BUBT</h1>
+      <div id="content-body" class="text-gray-800 text-sm">
+        Please select a topic from the top menu to start.
+      </div>
+    </section>
+  </div>
+  <script src="/static/js/script.js"></script>
+
+  <script>
+    // Dynamic Content Data
+    const contentData = {
+      python: {
+        title: "Python for AI",
+        toc: {
+          "Basics of Python": "Learn Python syntax, variables, and control structures.",
+          "Libraries for AI": "NumPy, Pandas, and Matplotlib for data manipulation and visualization.",
+          "Scikit-learn": "Introduction to Scikit-learn for machine learning models."
+        }
+      },
+      ml: {
+        title: "Machine Learning",
+        toc: {
+          "Supervised Learning": "Learn about regression, classification, and key algorithms.",
+          "Unsupervised Learning": "Explore clustering and dimensionality reduction techniques.",
+          "Evaluation Metrics": "Understand metrics like accuracy, precision, recall, and F1-score."
+        }
+      },
+      dl: {
+        title: "Deep Learning",
+        toc: {
+          "Neural Networks": "Understand the structure of a neural network.",
+          "TensorFlow and Keras": "Get hands-on with TensorFlow and Keras for deep learning.",
+          "Convolutional Neural Networks (CNNs)": "Learn CNNs for image processing tasks."
+        }
+      },
+      nlp: {
+        title: "Natural Language Processing",
+        toc: {
+          "Text Preprocessing": "Tokenization, stemming, and lemmatization.",
+          "Hugging Face Transformers": "Explore pre-trained language models like BERT.",
+          "Sentiment Analysis": "Build sentiment analysis models using NLP techniques."
+        }
+      },
+      ds: {
+        title: "Data Science for AI",
+        toc: {
+          "EDA": "Perform exploratory data analysis with Python.",
+          "Data Visualization": "Create compelling visuals with Matplotlib and Seaborn.",
+          "Data Cleaning": "Handle missing values and outliers effectively."
+        }
+      },
+      cv: {
+        title: "Computer Vision",
+        toc: {
+          "Image Processing": "Learn basic image manipulation using OpenCV.",
+          "Object Detection": "Use YOLO and SSD for object detection.",
+          "Face Recognition": "Implement face recognition models."
+        }
+      },
+      api: {
+        title: "AI APIs",
+        toc: {
+          "OpenAI API": "Explore GPT models using OpenAI's API.",
+          "Hugging Face API": "Use Hugging Face for NLP tasks.",
+          "Google Cloud AI": "Leverage Google Cloud services for AI."
+        }
+      },
+      frameworks: {
+        title: "AI Frameworks",
+        toc: {
+          "TensorFlow": "Learn how to build deep learning models with TensorFlow.",
+          "PyTorch": "Get hands-on with PyTorch for machine learning tasks.",
+          "ONNX": "Understand Open Neural Network Exchange for interoperability."
+        }
+      },
+      ethics: {
+        title: "AI Ethics",
+        toc: {
+          "Bias in AI": "Identify and mitigate bias in AI systems.",
+          "Explainable AI": "Understand methods to make AI interpretable.",
+          "Fairness": "Ensure fairness in model training and predictions."
+        }
+      },
+      deployment: {
+        title: "AI Deployment",
+        toc: {
+          "Docker": "Containerize your AI models using Docker.",
+          "FastAPI": "Deploy AI models with FastAPI.",
+          "Streamlit": "Create interactive dashboards for your AI models."
+        }
+      }
+    };
+
+    // Function to Load Main Content and Table of Contents
+    function loadContent(topic) {
+      const content = contentData[topic];
+      if (content) {
+        document.getElementById("content-title").textContent = content.title;
+
+        // Update Table of Contents
+        const tocList = document.getElementById("table-of-contents");
+        tocList.innerHTML = ""; // Clear previous TOC
+        Object.keys(content.toc).forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          li.className = "hover:text-green-500 cursor-pointer";
+          li.addEventListener("click", () => loadTOCContent(topic, item));
+          tocList.appendChild(li);
+        });
+
+        // Reset Content Body
+        document.getElementById("content-body").innerHTML =
+          "Click on a Table of Contents item to view details.";
+      }
+    }
+
+    // Function to Load Specific TOC Content
+    function loadTOCContent(topic, tocItem) {
+      const content = contentData[topic];
+      if (content && content.toc[tocItem]) {
+        document.getElementById("content-body").innerHTML = `
+          <h2 class="text-xl font-semibold mb-2">${tocItem}</h2>
+          <p>${content.toc[tocItem]}</p>
+        `;
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="/static/css/main.css" />
+  <link rel="shortcut" href="https://chat.openai.com/favicon.ico" type="image/X-UA-Compatible" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+  <title>Join Us</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+   <!-- This is the Menubar -->
+   <header class="w-full bg-white shadow">
+    <div class="flex items-center justify-between px-6 py-4">
+      <!-- Logo -->
+      <a class="flex items-center text-2xl font-black text-slate-800" href="/">
+        <img src="static\photos\logo.png" class="h-20 w-auto">
+      </a>
+      
+
+      <!-- Search Bar -->
+      <form class="hidden md:flex items-center space-x-2 max-w-md w-full">
+        <input type="text" placeholder="Search here..." class="w-full px-4 py-2 text-sm rounded-lg bg-slate-800 text-white placeholder-gray-400 focus:outline-none ">
+        <button type="submit" class="px-3 py-1.5 text-white bg-slate-600 rounded-lg hover:bg-slate-800 focus:outline-none ">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+    <!-- Navigation -->
+<nav>
+  <ul class="hidden md:flex space-x-8 text-gray-600">
+    <li><a href="{{ url_for('learn') }}" class="hover:text-blue-600">Learn</a></li>
+    <li><a href="{{ url_for('research_and_project') }}" class="hover:text-blue-600">Research & Project</a></li>
+    <li><a href="{{ url_for('community') }}" class="hover:text-blue-600">Community</a></li>
+    <li><a href="{{ url_for('blog') }}" class="hover:text-blue-600">Blog</a></li>
+    <li><a href="{{ url_for('join_us') }}" class="hover:text-blue-600">Join Us</a></li>
+  </ul>
+</nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+      <form class=" flex items-center space-x-4 px-6 max-w-md w-full">
+        <input type="text" placeholder="Search here..." class="w-full px-4 py-2 text-sm rounded-lg bg-slate-800 text-white placeholder-gray-400 focus:outline-none ">
+        <button type="submit" class="px-3 py-1.5 text-white bg-slate-600 rounded-lg hover:bg-slate-800 focus:outline-none ">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <ul class="flex flex-col space-y-2 px-6 py-4 text-gray-600">
+        <li><a href="/templates/learn.html" class="hover:text-blue-600">Learn</a></li>
+        <li><a href="#" class="hover:text-blue-600">Research & Project</a></li>
+        <li><a href="#" class="hover:text-blue-600">Community</a></li>
+        <li><a href="#" class="hover:text-blue-600">Blog</a></li>
+        <li><a href="#" class="hover:text-blue-600">Join Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="bg-white shadow-lg rounded-lg p-8 max-w-2xl mx-auto mt-10">
+    <!-- Heading -->
+    <h1 class="text-5xl font-bold text-blue-800 mb-4 text-center">Join AI COMMUNITY BUBT</h1>
+    <div class="border-b-4 border-slate-800 w-24 mx-auto mb-6"></div>
+  
+    <!-- Key Highlights -->
+    <ul class="text-sm text-gray-600 mb-6 space-y-2">
+      <li>➤ Frequently Asked Questions</li>
+      <li>➤ Exclusive member benefits</li>
+      <li>➤ How AI can transform your career</li>
+    </ul>
+  
+    <!-- Description -->
+    <p class="text-gray-700 text-base mb-4">
+      Be part of the revolution in technology by joining the AI Community at BUBT. Collaborate, learn, and grow with the latest advancements in Artificial Intelligence.
+    </p>
+    <p class="text-gray-700 text-base mb-6">
+      As a member, you'll have access to workshops, hands-on projects, AI competitions, and exclusive mentoring from industry professionals. Unlock your potential with us.
+    </p>
+  
+    <!-- Wings Section -->
+    <div class="mb-6">
+        <h2 class="text-2xl font-bold text-blue-800 mb-2">Our Wings</h2>
+        <h3 class="text-lg font-medium text-gray-800 mb-4">Major Wings</h3>
+        <ul class="text-gray-700 text-sm space-y-2">
+          <li><strong>Paper Writing Wing:</strong> Focused on research and academic publications.</li>
+          <li><strong>Class Monitor Wing:</strong> Coordinates member activities and progress.</li>
+          <li><strong>Event Planning Wing:</strong> Organizes seminars, expos, and gatherings.</li>
+          <li><strong>Alumni Advisor Wing:</strong> Connects alumni for mentoring and support.</li>
+          <li><strong>Higher Studies Wing:</strong> Guides members in pursuing further education.</li>
+          <li><strong>Project & Technology Wing:</strong> Drives innovative projects and technological advancements.</li>
+        </ul>
+      
+        <h3 class="text-lg font-medium text-gray-800 mt-6 mb-4">Sub Wings</h3>
+        <ul class="text-gray-700 text-sm space-y-2">
+          <li><strong>NLP:</strong> Natural Language Processing advancements and projects.</li>
+          <li><strong>Computer Vision:</strong> Visual data analysis and AI solutions.</li>
+          <li><strong>Robotics:</strong> Development of automated and intelligent machines.</li>
+          <li><strong>Cybersecurity:</strong> Ensuring data protection and security.</li>
+          <li><strong>GAN:</strong> Generative Adversarial Networks for creative AI applications.</li>
+          <li><strong>Bioinformatics:</strong> Integrating AI into biological data analysis.</li>
+          <li><strong>Game Development:</strong> Building interactive and engaging games using AI.</li>
+        </ul>
+      </div>
+      
+  
+    <!-- Call-to-Action Button -->
+    <div class="text-center">
+      <a href="#" class="bg-blue-800 text-white font-medium text-sm py-3 px-6 rounded-md hover:bg-teal-600 transition inline-flex items-center">
+        Apply Now
+        <svg class="ml-2 w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  
+
+  <footer  id="footer" class="bg-gray-50 border-t border-gray-200 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+        
+        <!-- About AI Community BUBT -->
+        <div class="md:col-span-1">
+          <h2 class="text-lg font-bold text-gray-900">AI Community BUBT</h2>
+          <p class="text-gray-600 mt-2 text-sm">
+            Connecting students, researchers, and professionals to foster innovation and learning in artificial intelligence at BUBT.
+          </p>
+          <p class="text-gray-600 mt-1 text-sm">
+            Copyright © AI Community BUBT, 2025
+          </p>
+        </div>
+        
+        <!-- Learn AI -->
+        <div>
+          <h3 class="text-sm font-semibold text-gray-800 tracking-wide uppercase">Learn AI</h3>
+          <ul class="mt-4 space-y-2">
+            <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Beginner's Guide</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Machine Learning Basics</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Deep Learning Concepts</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Data Science Tools</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Ethics in AI</a></li>
+          </ul>
+        </div>
+        
+        <!-- Community Resources -->
+        <div>
+          <h3 class="text-sm font-semibold text-gray-800 tracking-wide uppercase">Community Resources</h3>
+          <ul class="mt-4 space-y-2">
+            <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Events & Workshops</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">AI Projects</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Mentorship Program</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">AI Blogs</a></li>
+          </ul>
+        </div>
+        
+        <!-- Get Involved -->
+        <div>
+          <h3 class="text-sm font-semibold text-gray-800 tracking-wide uppercase">Get Involved</h3>
+          <ul class="mt-4 space-y-2">
+            <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Join as a Member</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Become a Volunteer</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Sponsor Us</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Social Media Links -->
+      <div class="mt-10 flex justify-center md:justify-end space-x-4">
+        <a href="https://www.facebook.com/aicbubt" class="text-gray-500 hover:text-gray-900"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="text-gray-500 hover:text-gray-900"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-gray-500 hover:text-gray-900"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="text-gray-500 hover:text-gray-900"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+  
+
+
+  
+  <script src="/static/js/script.js"></script>
+
+
+
+</body>
+</html>

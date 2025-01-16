@@ -1,0 +1,109 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class=" min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
+  <div class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
+      <div class="mx-auto max-w-md">
+        <p class="h-6 text-xl font-bold text-center">HEALTHOS APPOINTMENTS</p>
+        <p class="font-thin text-xs text-center">a Healthos.io product</p>
+      </div>
+      
+      <div class="mx-auto max-w-md">
+     
+        <form class="mt-8 space-y-6" action="#" method="POST">
+          <!-- Patient Name -->
+          <div>
+            <label for="patientName" class="block text-sm font-medium text-gray-700">Patient Name</label>
+            <input id="patientName" name="patientName" type="text" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter your full name">
+          </div>
+
+    <!-- Uploed picture-->
+
+   <form class="flex items-center space-x-6">
+  <div class="shrink-0">
+   <label for="patientName" class="block text-sm font-medium text-gray-700">Choose Your Picture</label>
+  </div>
+  <label class="block">
+    <span class="sr-only">Choose Your Picture</span>
+    <input type="file" class="block w-full text-sm text-slate-500
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-full file:border-0
+      file:text-sm file:font-semibold
+      file:bg-violet-50 file:text-violet-700
+      hover:file:bg-violet-100
+    "/>
+  </label>
+</form>
+
+          <!-- Select Doctor -->
+          <div class="mt-4">
+            <label for="doctor" class="block text-sm font-medium text-gray-700">Select Doctor</label>
+            <select id="doctor" name="doctor" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              <option value="">Choose a doctor</option>
+              <option value="doctor1">Dr. John Doe - Cardiology</option>
+              <option value="doctor2">Dr. Jane Smith - Neurology</option>
+              <option value="doctor3">Dr. Alan Brown - Pediatrics</option>
+            </select>
+          </div>
+
+          <!-- Appointment Date -->
+          <div class="mt-4">
+            <label for="appointmentDate" class="block text-sm font-medium text-gray-700">Appointment Date</label>
+            <input id="appointmentDate" name="appointmentDate" type="date" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          </div>
+
+          <!-- Appointment Time -->
+          <div class="mt-4">
+            <label for="appointmentTime" class="block text-sm font-medium text-gray-700">Appointment Time</label>
+            <input id="appointmentTime" name="appointmentTime" type="time" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          </div>
+
+          <!-- Contact Info -->
+          <div class="mt-4">
+            <label for="contactNumber" class="block text-sm font-medium text-gray-700">Contact Number</label>
+            <input id="contactNumber" name="contactNumber" type="tel" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter your phone number">
+          </div>
+
+          <!-- Hospital Name -->
+          <div class="mt-4">
+            <label for="hospitalName" class="block text-sm font-medium text-gray-700">Hospital Name</label>
+            <input id="hospitalName" name="hospitalName" type="text" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter the hospital name">
+          </div>
+
+          <!-- Location -->
+  <!-- Location -->
+<div class="mt-4">
+  <label for="location" class="block text-sm font-medium text-gray-700">Your Location</label>
+  <input id="location" name="location" type="text" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter or use current location">
+  <button type="button" id="getLocation" class="mt-2 px-2 py-2  text-black rounded-md flex items-center justify-center">
+    <i class="fa-solid fa-location-dot "></i>
+    <span class="ml-2 text-xs">Use My Location</span>
+  </button>
+</div>
+
+          <!-- Submit Button -->
+          <div class="mt-6">
+            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Book Appointment
+            </button>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("getLocation").addEventListener("click", function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        
+        // Fetch the address using reverse geocoding (e.g., using Google Maps API)
+        // Set the location input field with the fetched address (you'll need an API to convert lat/long to address)
+        document.getElementById("location").value = `Lat: ${latitude}, Long: ${longitude}`;
+      });
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  });
+</script>
